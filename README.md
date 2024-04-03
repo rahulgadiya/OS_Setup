@@ -1,7 +1,9 @@
 # Setup
+
 This repository contains all the necessary files, steps, and instructions to set up any Linux operating system after installation. Currently, it's tailored for Debian OS.
 
-Files:
+**Files:**
+
 1. git-cheat-sheet-education.pdf : A cheat sheet for Git commands and usage tailored for educational purposes.
 
 2. Markdown_Guide.md : Guide or tutorial on how to use Markdown, a lightweight markup language, often used for formatting plain text documents.
@@ -15,3 +17,9 @@ Files:
 6. Linux_Audio_Troubleshooting.md : Guide/troubleshooting steps for resolving audio issues on Linux systems.
 
 7. pentest.md : Guide or instructions for performing penetration testing, often used for assessing the security of systems or networks.
+
+8. custom_workspace_shortcut_instructions.md : Instructions for setting up custom workspace shortcuts, which can improve productivity and workflow efficiency.
+
+9. IST.py : Python automated script to check internet speed 
+
+10. debian_chromium_alacritty_installation.md :  Guide or instructions for installing Chromium and Alacritty on Debian Linux, providing steps for setup and configuration.
