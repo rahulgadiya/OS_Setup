@@ -1,4 +1,4 @@
-# Setup
+#  “कर्मण्येवाधिकारस्ते मा फलेषु कदाचन | मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि || 47 ||”
 
 This repository contains all the necessary files, steps, and instructions to set up any Linux operating system after installation. Currently, it's tailored for Debian OS.
 
@@ -23,3 +23,5 @@ This repository contains all the necessary files, steps, and instructions to set
 9. IST.py : Python automated script to check internet speed 
 
 10. debian_chromium_alacritty_installation.md :  Guide or instructions for installing Chromium and Alacritty on Debian Linux, providing steps for setup and configuration.
+
+11. TL-WN722N_v2_Kali_Wireless_Setup.md : WiFi Adapter Setup Instructions for Kali Linux
