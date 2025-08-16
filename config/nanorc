@@ -1,0 +1,97 @@
+## ==============================
+## GNU nano configuration
+## Focus: Git commits + fallback editor + code reading
+## ==============================
+
+## --- General Navigation ---
+set constantshow       # Always show cursor position
+set smarthome          # Smarter Home key behavior
+set jumpyscrolling     # Scroll half a page at a time
+set positionlog        # Remember cursor position across sessions
+set mouse              # Enable mouse support
+
+## --- File Handling ---
+unset backup           # No ~ backup clutter
+set unix               # Use LF endings (Git-safe)
+set noconvert          # Don't auto-convert line endings
+set nonewlines         # Don't force newline at EOF
+
+## --- UI ---
+set nohelp             # Hide help bar → more screen space
+set minibar            # Minimal status bar
+set boldtext           # Bold text instead of reverse
+set showcursor         # Show cursor in file browser/help
+set guidestripe 72     # Visual stripe at column 72 (commit body)
+set linenumbers        # Show line numbers for code editing
+set softwrap           # Wrap long lines visually
+set atblanks           # Wrap at word boundaries
+set autoindent         # Auto-indent new lines
+set tabsize 4          # 4-space tabs
+set tabstospaces       # Convert tabs to spaces
+
+## --- Search & Replace ---
+set casesensitive      # Case-sensitive searches by default
+set historylog         # Remember search/replace history
+
+## --- Load System Syntax Highlighting ---
+## This should come before custom syntax definitions
+include "/usr/share/nano/*.nanorc"
+
+## --- Custom Git Commit Syntax ---
+syntax "gitcommit" "COMMIT_EDITMSG$" "\.git/COMMIT_EDITMSG$"
+
+# Subject line - good length (≤50 chars)
+color brightgreen "^.{1,50}$"
+
+# Subject line - warning length (51-72 chars)
+color brightyellow "^.{51,72}$"
+
+# Subject line - too long (>72 chars)
+color brightred "^.{73,}.*$"
+
+# Body text - good length (≤72 chars)
+color white "^.{1,72}$"
+
+# Body text - too long (>72 chars)
+color yellow "^.{73,}.*$"
+
+# Comments (Git adds these)
+color brightblack "^#.*$"
+
+# Commit trailers
+color brightcyan "^(Signed-off-by|Co-authored-by|Reviewed-by|Tested-by|Fixes|Closes):"
+
+# Keywords in commit messages
+color brightmagenta "\b(TODO|FIXME|NOTE|HACK|XXX)\b"
+
+# Conventional commit types
+color brightblue "^(feat|fix|docs|style|refactor|test|chore|perf|ci|build)(\(.+\))?:"
+
+# Issue/PR references
+color brightcyan "#[0-9]+"
+
+## --- Colors (UI & code readability) ---
+set titlecolor bold,white,blue
+set statuscolor bold,white,green
+set errorcolor bold,white,red
+set selectedcolor lightwhite,magenta
+set stripecolor ,gray
+set numbercolor cyan
+set keycolor cyan
+set functioncolor green
+
+## --- Key Bindings ---
+## Uncomment these for more familiar keybindings
+# bind ^S savefile main      # Ctrl+S to save
+# bind ^O insert main        # Ctrl+O to open/insert file
+# bind ^F whereis main       # Ctrl+F to find
+# bind ^H help all           # Ctrl+H for help
+# bind ^Q exit all           # Ctrl+Q to quit
+# bind ^Z undo main          # Ctrl+Z to undo
+# bind ^Y redo main          # Ctrl+Y to redo
+
+## --- Advanced Options ---
+# set multibuffer           # Enable multiple file buffers
+# set locking               # Use lock files (vim-style)
+# set indicator             # Show scrollbar
+# set magic                 # Use libmagic for syntax detection
