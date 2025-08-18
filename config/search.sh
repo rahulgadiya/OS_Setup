@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Set up search engines
 declare -A ENGINES=(
     [":g"]="Google: https://www.google.com/search?q="
@@ -59,5 +58,11 @@ if command -v notify-send &>/dev/null; then
     notify-send "Rofi Web Search" "Searching: $query"
 fi
 
-# Open the URL
-brave "$url" &>/dev/null & disown
+# Open the URL with appropriate browser
+if [[ "$prefix" == ":yt" ]]; then
+    # Use Brave for YouTube searches
+    brave "$url" &>/dev/null & disown
+else
+    # Use default browser for everything else
+    xdg-open "$url" &>/dev/null & disown
+fi
