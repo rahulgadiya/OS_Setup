@@ -25,7 +25,7 @@ url_encode() {
 }
 
 # If no argument: list available search engines and tips
-if [ -z "$1" ]; then
+if [ $# -eq 0 ]; then
     echo "Type a search (default: Google)."
     echo
     echo "Prefixes for quick search engines:"
@@ -38,12 +38,13 @@ if [ -z "$1" ]; then
     exit 0
 fi
 
-input="$(echo "$1" | xargs)"
+# Combine all arguments into a single input string
+input="$*"
+input="$(echo "$input" | xargs)"
 prefix="${input%% *}"
 
 if [[ "${ENGINES[$prefix]+_}" ]]; then
     query="${input#* }"
-    engine_url="${ENGINES[$prefix]##*: }"
 else
     prefix=":g"
     query="$input"
@@ -64,5 +65,5 @@ if [[ "$prefix" == ":yt" ]]; then
     brave "$url" &>/dev/null & disown
 else
     # Use default browser for everything else
-    xdg-open "$url" &>/dev/null & disown
+    qutebrowser "$url" &>/dev/null & disown
 fi
